@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: hotel-app
+data:
+  MONGO_URL: "mongodb://admin:hotelpass123@mongo:27017/hotelDB?authSource=admin"

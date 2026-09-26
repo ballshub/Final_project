@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-express
+  namespace: hotel-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-express
+  template:
+    metadata:
+      labels:
+        app: mongo-express
+    spec:
+      containers:
+        - name: mongo-express
+          image: mongo-express:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: ME_CONFIG_MONGODB_URL
+              value: "mongodb://admin:hotelpass123@mongo-0.mongo:27017,mongo-1.mongo:27017,mongo-2.mongo:27017/?replicaSet=rs0&authSource=admin"
+            - name: ME_CONFIG_BASICAUTH_USERNAME
+              value: "admin"
+            - name: ME_CONFIG_BASICAUTH_PASSWORD
+              value: "adminpass"
+            - name: ME_CONFIG_SESSION_SECRET
+              value: "somelongrandomsecretvalue123456"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express
+  namespace: hotel-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: mongo-express
+  ports:
+    - port: 8081
+      targetPort: 8081

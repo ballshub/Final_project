@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 // Where the backend lives. Later we can change this without touching the code.
-const API = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API = "/api";
 
 const fmt = (d) => new Date(d).toLocaleDateString();
 
