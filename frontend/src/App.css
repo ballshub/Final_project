@@ -1,0 +1,13 @@
+body { font-family: Arial, sans-serif; background: #f2f4f7; margin: 0; }
+.container { max-width: 480px; margin: 30px auto; background: white; padding: 24px; border-radius: 8px; }
+nav { display: flex; gap: 8px; margin-bottom: 16px; }
+nav button { flex: 1; padding: 10px; border: 1px solid #ccc; background: #eee; cursor: pointer; }
+nav button.active { background: #2563eb; color: white; border-color: #2563eb; }
+form { display: flex; flex-direction: column; gap: 10px; }
+input, select { padding: 10px; font-size: 15px; }
+button { padding: 10px; cursor: pointer; }
+form button { background: #2563eb; color: white; border: none; }
+.card { border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin-top: 12px; }
+.danger { background: #dc2626; color: white; border: none; margin-top: 8px; }
+.ok { color: #15803d; }
+.err { color: #b91c1c; }
